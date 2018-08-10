@@ -1,5 +1,5 @@
 #!/bin/bash -eux
-# nginx web server plugins.
+# nginx web server plugins
 apt-get -y install uwsgi-plugin-python uwsgi
 
 # reqs for Graphite
