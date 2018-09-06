@@ -55,9 +55,12 @@ while [ "$changed"  == "1" ]; do
     done
   done
 done
- 
+
+curl -L --silent --output /var/lib/jenkins/plugins/build-flow-plugin.hpi  http://mirrors.jenkins-ci.org/plugins/build-flow-plugin/latest/build-flow-plugin.hpi
+
 echo "fixing permissions"
  
 chown ${file_owner} ${plugin_dir} -R
- 
+
 echo "all done"
+

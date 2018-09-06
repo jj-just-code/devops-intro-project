@@ -12,17 +12,21 @@ apt-get install -y jenkins=1.625.2 daemon
 # copy premade configuration files
 # jenkins default config, to set --prefix=jenkins
 cp -f /tmp/jenkins-config/jenkins /etc/default
+
 # fix dos newlines for Windows users
 dos2unix /etc/default/jenkins
+
 # install some extra plugins
 /bin/bash /tmp/jenkins-config/install_jenkins_plugins.sh
+
 # jenkins security and pipeline plugin config
 cp -f /tmp/jenkins-config/config.xml /var/lib/jenkins
+
 # set up username for vagrant
 mkdir -p /var/lib/jenkins/users/vagrant
 cp /tmp/jenkins-config/users/vagrant/config.xml /var/lib/jenkins/users/vagrant
+
 # example job
-mkdir -p /var/lib/jenkins/jobs
 cd /var/lib/jenkins/jobs
 tar zxf /tmp/jenkins-config/example-job.tar.gz
 
